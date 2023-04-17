@@ -1,4 +1,4 @@
-﻿using TarefasSistemas.Enums;
+﻿
 
 namespace TarefasSistemas.Models
 {
@@ -12,5 +12,9 @@ namespace TarefasSistemas.Models
         public string? Genre { get; set; }
         public double? Rating { get; set; }
 
+        public static implicit operator List<object>(Movie v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

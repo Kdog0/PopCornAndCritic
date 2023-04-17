@@ -26,6 +26,8 @@ namespace Tarefas
                 );
 
             builder.Services.AddScoped<IUsuariosRepositorio, UsuarioRepositorios>();
+            builder.Services.AddScoped<IMoviesRepositorio, MovieRepositorios>();
+            builder.Services.AddScoped<IComment, ComentarioRepositorio>();
 
             var app = builder.Build();
 

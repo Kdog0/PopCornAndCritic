@@ -11,9 +11,6 @@ namespace TarefasSistemas.Models
         public string? UrlImg { get; set; }
         public string? Bio { get; set; }
 
-        public static implicit operator UsuarioModel(List<UsuarioModel> v)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

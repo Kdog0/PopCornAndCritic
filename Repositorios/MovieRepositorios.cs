@@ -1,23 +1,42 @@
-﻿using TarefasSistemas.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using TarefasSistemas.Data;
+using TarefasSistemas.Models;
 using TarefasSistemas.Repositorios.Interfaces;
 
 namespace TarefasSistemas.Repositorios
 {
     public class MovieRepositorios : IMoviesRepositorio
     {
+        private readonly TarefasDoSistemaDbContext _db;
+
+        public MovieRepositorios(TarefasDoSistemaDbContext db)
+        {
+            _db = db;
+        }
+
+        public async Task<List<Movie>> BuscarTodosFilmes()
+        {
+            return await _db.Movies.ToListAsync();
+        }
+
         public Task<Movie> BuscarFilme()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Movie> BuscarGenero()
+        public Task<Movie> BuscarGeneros()
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Movie>> BuscarTodosFilmes()
+
+        public async Task<Movie> Cadastro(Movie movie)
         {
-            throw new NotImplementedException();
+            await _db.Movies.AddAsync(movie);
+            await _db.SaveChangesAsync();
+
+            return movie;
+           
         }
     }
 }

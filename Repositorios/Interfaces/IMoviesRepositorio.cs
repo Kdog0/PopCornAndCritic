@@ -6,6 +6,7 @@ namespace TarefasSistemas.Repositorios.Interfaces
     {
         Task<List<Movie>> BuscarTodosFilmes();
         Task<Movie> BuscarFilme();
-        Task<Movie> BuscarGenero();
+        Task<Movie> BuscarGeneros();
+        Task<Movie> Cadastro( Movie movie);
     }
 }

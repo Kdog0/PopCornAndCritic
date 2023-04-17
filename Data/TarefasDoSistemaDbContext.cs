@@ -10,6 +10,7 @@ namespace TarefasSistemas.Data
 
         public DbSet<UsuarioModel> Usuarios { get; set; }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<ComentarioModel> Comentarios { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
             var isValid = modelBuilder;
@@ -19,6 +20,7 @@ namespace TarefasSistemas.Data
 
             modelBuilder.ApplyConfiguration(new UsuarioMap());
             modelBuilder.ApplyConfiguration(new MovieMap()); 
+            modelBuilder.ApplyConfiguration(new ComentarioMap());
             base.OnModelCreating(modelBuilder);
         }
     }
